@@ -3,6 +3,7 @@
 https://tbrain.trendmicro.com.tw/Competitions/Details/22
 
 ## Data Path
+```
 .
 └── STAS
     ├── All_Annotations
@@ -34,3 +35,4 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/22
     ├── postprocess.py (For postprocessing prediction to final result)
     │
     └── **STAS.ipynb** (for training & inference model)
+```
