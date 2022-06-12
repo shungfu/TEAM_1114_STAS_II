@@ -13,7 +13,7 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/22
 8. 最終執行 `postprocess.py` 對預測結果進行後處理即可得到比賽上傳的最終成績
 
 ## Data Path
-```
+``` python
 .
 └── STAS
     ├── All_Annotations
@@ -50,7 +50,7 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/22
 ```
 ## Parameter Setting
 ### Train
-```
+``` python
 random_seed = 8863
 optimizer = SAM(base_optimizer=AdamW,lr=3e-4)
 loss_function = BCELoss()
@@ -83,7 +83,7 @@ train_transform = [
     ]
 ```
 ### Prediction & Postprocessing
-```
+``` python
 threshold = 0.43 (判斷是否為 STAS 的閥值)
 fill_hole = cv2.fillpoly(contours)
 erosion = cv2.erode(kernel_size =(3x3), iteration = 2)
