@@ -48,3 +48,44 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/22
     │
     └── STAS.ipynb (for training & inference model)
 ```
+## Parameter Setting
+### Train
+```
+random_seed = 8863
+optimizer = SAM(base_optimizer=AdamW,lr=3e-4)
+loss_function = BCELoss()
+model_architecture = DeepLabV3Plus
+encoders = ['resnet50', 'resnet101', 'resnet152', 'resnext50_32x4d', 'resnext101_32x4d', 'se_resnet50'] (All 6 models use different encoder)
+input_size = 1600x800 pixels
+batchsize = [16, 12, 8, 12, 8, 12] (與 encoders 相同排序)
+epochs = 200
+scheduler = lr×〖(1-(now epoch)/totalepoch)〗^0.9 (當 epoch = 100 及 150 時)
+```
+### Augmentation
+使用 albumentations 同時對 image 及 mask 進行操作
+``` 
+python
+train_transform = [
+
+        albu.HorizontalFlip(p=0.5),
+        albu.Rotate(limit=40,p=0.5,border_mode=cv2.BORDER_CONSTANT),
+        albu.VerticalFlip(p=0.5),
+        albu.ShiftScaleRotate(scale_limit=0.5, rotate_limit=0, shift_limit=0.1, p=0.5, border_mode=0),
+        
+        albu.HueSaturationValue(p=0.6),
+        albu.Sharpen(p=0.5),
+        albu.RandomBrightnessContrast(p=0.4),
+
+        albu.OneOf([
+            albu.ElasticTransform(p=0.5, alpha=120, sigma=120*0.05, alpha_affine=120*0.03),
+            albu.GridDistortion(p=0.5),
+            albu.OpticalDistortion(distort_limit=1, shift_limit=0.5, p=1)
+        ]),
+    ]
+```
+### Prediction & Postprocessing
+```
+threshold = 0.43 (判斷是否為 STAS 的閥值)
+fill_hole = cv2.fillpoly(contours)
+erosion = cv2.erode(kernel_size =(3x3), iteration = 2)
+```
