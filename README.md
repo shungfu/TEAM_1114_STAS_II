@@ -110,3 +110,15 @@ Torch = 1.9.0
 
 ## Reference
 SAM optimizer from: https://github.com/davda54/sam
+
+## Cite
+```
+@misc{Yakubovskiy:2019,
+  Author = {Pavel Yakubovskiy},
+  Title = {Segmentation Models Pytorch},
+  Year = {2020},
+  Publisher = {GitHub},
+  Journal = {GitHub repository},
+  Howpublished = {\url{https://github.com/qubvel/segmentation_models.pytorch}}
+}
+```
