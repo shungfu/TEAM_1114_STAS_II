@@ -13,7 +13,7 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/22
 8. 最終執行 `postprocess.py` 對預測結果進行後處理即可得到比賽上傳的最終成績
 
 ## Data Path
-``` python
+``` 
 .
 └── STAS
     ├── All_Annotations
@@ -56,7 +56,7 @@ optimizer = SAM(base_optimizer=AdamW,lr=3e-4)
 loss_function = BCELoss()
 model_architecture = DeepLabV3Plus
 encoders = ['resnet50', 'resnet101', 'resnet152', 'resnext50_32x4d', 'resnext101_32x4d', 'se_resnet50'] (All 6 models use different encoder)
-input_size = 1600x800 pixels
+input_size = 1600*800 pixels
 batchsize = [16, 12, 8, 12, 8, 12] (與 encoders 相同排序)
 epochs = 200
 scheduler = lr×〖(1-(now epoch)/totalepoch)〗^0.9 (當 epoch = 100 及 150 時)
