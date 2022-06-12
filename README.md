@@ -63,8 +63,7 @@ scheduler = lr×〖(1-(now epoch)/totalepoch)〗^0.9 (當 epoch = 100 及 150 �
 ```
 ### Augmentation
 使用 albumentations 同時對 image 及 mask 進行操作
-``` 
-python
+``` python
 train_transform = [
 
         albu.HorizontalFlip(p=0.5),
