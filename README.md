@@ -59,7 +59,7 @@ encoders = ['resnet50', 'resnet101', 'resnet152', 'resnext50_32x4d', 'resnext101
 input_size = 1600*800 pixels
 batchsize = [16, 12, 8, 12, 8, 12] (與 encoders 相同排序)
 epochs = 200
-scheduler = lr×〖(1-(now epoch)/totalepoch)〗^0.9 (當 epoch = 100 及 150 時)
+scheduler = lr×〖(1-(now epoch)/total epoch)〗^0.9 (當 epoch = 100 及 150 時)
 ```
 ### Augmentation
 使用 albumentations 同時對 image 及 mask 進行操作
