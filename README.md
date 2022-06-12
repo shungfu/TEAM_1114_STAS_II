@@ -3,11 +3,14 @@
 https://tbrain.trendmicro.com.tw/Competitions/Details/22
 
 ## Environments Building
-1. 下載競賽連結中的`SEG_Train_Datasets.zip`並解壓縮，將裡面的`Train_Annotations`及`Train_Images`改名為`All_Annotations`及`All_Images`
-2. 執行`preprocess.py`以取出全部圖片的遮罩並儲存於`All_Mask`與`All_Masked_Images`中
-3. 將`All_Images`及`All_Mask`中的`00000800.jpg`~`00000919.jpg`按下方格式放置於`Valid`資料夾，其餘則按相同格式放置於`Train`資料夾
-4. 下載競賽連結中的`Public_Image.zip`及`Private_Image.zip`，解壓縮後放置於`Inference_Images`中
-5. 執行`get_model.sh`下載比賽Ensemble使用的6個模型權重放置於`Models`中
+1. 下載競賽連結中的 `SEG_Train_Datasets.zip` 並解壓縮，將裡面的 `Train_Annotations` 及 `Train_Images` 改名為 `All_Annotations` 及 `All_Images`
+2. 執行 `preprocess.py` 以取出全部圖片的遮罩並儲存於 `All_Mask` 與 `All_Masked_Images` 中
+3. 將 `All_Images` 及 `All_Mask` 中的 `00000800.jpg` ~ `00000919.jpg` 按下方格式放置於 `Valid` 資料夾，其餘則按相同格式放置於 `Train` 資料夾
+4. 下載競賽連結中的 `Public_Image.zip` 及 `Private_Image.zip` ，解壓縮後放置於 `Inference_Images` 中
+5. 執行 `get_model.sh` 下載比賽Ensemble使用的6個模型權重放置於 `Models` 中
+6. `pip install requirements.txt` 以安裝使用到的套件
+7. 接著即可按照 `STAS.ipynb` 中的操作訓練及驗證模型 (Ensemble於最下方)
+8. 最終執行 `postprocess.py` 對預測結果進行後處理即可得到比賽上傳的最終成績
 
 ## Data Path
 ```
@@ -40,6 +43,8 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/22
     ├── preprocess.py (For changing points to mask)
     │
     ├── postprocess.py (For postprocessing prediction to final result)
+    │
+    ├── requirements.txt (For install toolkits)
     │
     └── STAS.ipynb (for training & inference model)
 ```
