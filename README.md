@@ -8,7 +8,7 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/22
 3. 將 `All_Images` 及 `All_Mask` 中的 `00000800.jpg` ~ `00000919.jpg` 按下方格式放置於 `Valid` 資料夾，其餘則按相同格式放置於 `Train` 資料夾
 4. 下載競賽連結中的 `Public_Image.zip` 及 `Private_Image.zip` ，解壓縮後放置於 `Inference_Images` 中
 5. 執行 `get_model.sh` 下載比賽Ensemble使用的6個模型權重放置於 `Models` 中
-6. `pip install requirements.txt` 以安裝使用到的套件
+6. `pip install -r requirements.txt` 以安裝使用到的套件
 7. 接著即可按照 `STAS.ipynb` 中的操作訓練及驗證模型 (Ensemble於最下方)
 8. 最終執行 `postprocess.py` 對預測結果進行後處理即可得到比賽上傳的最終成績
 
@@ -89,24 +89,31 @@ fill_hole = cv2.fillpoly(contours)
 erosion = cv2.erode(kernel_size =(3x3), iteration = 2)
 ```
 ``` python
-    contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
-    ## Fill hole
-    for idx in range(len(contours)):
-        contour = contours[idx]
-        area = cv2.contourArea(contour)
-        cv2.fillPoly(image, pts =[contour], color=(255,255,255))
-    
-    contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+## Fill hole
+for idx in range(len(contours)):
+    contour = contours[idx]
+    area = cv2.contourArea(contour)
+    cv2.fillPoly(image, pts =[contour], color=(255,255,255))
 
-    ## Erase Edge
-    kernel = np.ones((3,3), np.uint8)
-    erosion = cv2.erode(image, kernel, iterations = 2)
+contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+
+## Erase Edge
+kernel = np.ones((3,3), np.uint8)
+erosion = cv2.erode(image, kernel, iterations = 2)
 ```
 ## Toolkit & Version
-OS = Ubuntu 20.04
-Python = 3.8.12
-Torch = 1.9.0
+```
+Ubuntu=20.04
+python=3.8.12
+numpy=1.22.3
+albumentations=1.1.0
+matplotlib=3.5.1
+segmentation-models-pytorch=0.2.1
+torch=1.9.0
+opencv-python=4.5.5
+```
 
 ## Reference
 SAM optimizer from: https://github.com/davda54/sam
