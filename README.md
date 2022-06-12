@@ -94,3 +94,5 @@ OS = Ubuntu 20.04
 Python = 3.8.12
 Torch = 1.9.0
 
+## Reference
+SAM optimizer from: https://github.com/davda54/sam
