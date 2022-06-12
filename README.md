@@ -88,7 +88,21 @@ threshold = 0.43 (判斷是否為 STAS 的閥值)
 fill_hole = cv2.fillpoly(contours)
 erosion = cv2.erode(kernel_size =(3x3), iteration = 2)
 ```
+``` python
+    contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
+    ## Fill hole
+    for idx in range(len(contours)):
+        contour = contours[idx]
+        area = cv2.contourArea(contour)
+        cv2.fillPoly(image, pts =[contour], color=(255,255,255))
+    
+    contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+
+    ## Erase Edge
+    kernel = np.ones((3,3), np.uint8)
+    erosion = cv2.erode(image, kernel, iterations = 2)
+```
 ## Toolkit & Version
 OS = Ubuntu 20.04
 Python = 3.8.12
