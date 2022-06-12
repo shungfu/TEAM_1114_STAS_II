@@ -2,7 +2,7 @@
 ## Competetion Reference
 https://tbrain.trendmicro.com.tw/Competitions/Details/22
 
-## Environments Building
+## Environment Building
 1. 下載競賽連結中的 `SEG_Train_Datasets.zip` 並解壓縮，將裡面的 `Train_Annotations` 及 `Train_Images` 改名為 `All_Annotations` 及 `All_Images`
 2. 執行 `preprocess.py` 以取出全部圖片的遮罩並儲存於 `All_Mask` 與 `All_Masked_Images` 中
 3. 將 `All_Images` 及 `All_Mask` 中的 `00000800.jpg` ~ `00000919.jpg` 按下方格式放置於 `Valid` 資料夾，其餘則按相同格式放置於 `Train` 資料夾
