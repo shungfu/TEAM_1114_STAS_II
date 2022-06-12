@@ -111,7 +111,7 @@ Torch = 1.9.0
 ## Reference
 SAM optimizer from: https://github.com/davda54/sam
 
-## Cite
+## Citing
 ```
 @misc{Yakubovskiy:2019,
   Author = {Pavel Yakubovskiy},
