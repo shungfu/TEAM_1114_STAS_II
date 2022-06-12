@@ -88,3 +88,9 @@ threshold = 0.43 (判斷是否為 STAS 的閥值)
 fill_hole = cv2.fillpoly(contours)
 erosion = cv2.erode(kernel_size =(3x3), iteration = 2)
 ```
+
+## Toolkit & Version
+OS = Ubuntu 20.04
+Python = 3.8.12
+Torch = 1.9.0
+
