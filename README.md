@@ -5,7 +5,7 @@ https://tbrain.trendmicro.com.tw/Competitions/Details/22
 ## Environments Building
 1. 下載競賽連結中的`SEG_Train_Datasets.zip`並解壓縮，將裡面的`Train_Annotations`及`Train_Images`改名為`All_Annotations`及`All_Images`
 2. 執行`preprocess.py`以取出全部圖片的遮罩並儲存於`All_Mask`與`All_Masked_Images`中
-3. 將`All_Images`及`All_Mask`中的ˋ00000800.jpgˋ~ˋ00000919.jpgˋ按下方格式放置於ˋValidˋ資料夾，其餘則按相同格式放置於ˋTrainˋ資料夾
+3. 將`All_Images`及`All_Mask`中的 00000800.jpg ~ 00000919.jpg 按下方格式放置於ˋValidˋ資料夾，其餘則按相同格式放置於ˋTrainˋ資料夾
 4. 下載競賽連結中的ˋPublic_Image.zipˋ及ˋPrivate_Image.zipˋ，解壓縮後放置於ˋInference_Imagesˋ中
 5. 執行ˋget_model.shˋ下載比賽Ensemble使用的6個模型權重放置於ˋModelsˋ中
 
