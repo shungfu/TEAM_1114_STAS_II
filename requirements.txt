@@ -2,5 +2,5 @@ numpy==1.22.3
 albumentations==1.1.0
 matplotlib==3.5.1
 segmentation-models-pytorch==0.2.1
-torch==1.12
+torch==1.11
 opencv-python==4.5.5.64
