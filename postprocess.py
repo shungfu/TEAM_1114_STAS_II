@@ -2,17 +2,20 @@ import cv2
 import os
 import numpy as np
 
-data_path = './Predictions_Ensemble6_th043/'
-ori_path = './Inference_Images/'
-output_path = './Result_Ensemble6_th043/'
-mask_path = './Masked_Result_Ensemble6_th043/'
-os.makedirs(output_path, exist_ok=True)
-os.makedirs(mask_path, exist_ok=True)
+import config as cfg
 
-filenames = os.listdir(data_path)
+# data_path = './Predictions_Ensemble6_th043/'
+# ori_path = './Inference_Images/'
+# output_path = './Result_Ensemble6_th043/'
+# mask_path = './Masked_Result_Ensemble6_th043/'
+
+os.makedirs(cfg.ENSEMBLE_RST_DIR, exist_ok=True)
+os.makedirs(cfg.ENSEMBLE_MASK_DIR, exist_ok=True)
+
+filenames = os.listdir(cfg.ENSEMBLE_SOURCE_DIR)
 for filename in filenames:
-    ori_img_path = os.path.join(ori_path, filename[:-4]+'.jpg')
-    img_path = os.path.join(data_path,filename)
+    ori_img_path = os.path.join(cfg.INFERENCE_IMAGE_DIR, filename[:-4]+'.jpg')
+    img_path = os.path.join(cfg.ENSEMBLE_SOURCE_DIR, filename)
     image = cv2.imread(img_path, 0)
     contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
@@ -32,7 +35,7 @@ for filename in filenames:
     ori_img = cv2.imread(ori_img_path)
 
 
-    cv2.imwrite(os.path.join(output_path,filename), erosion)
+    cv2.imwrite(os.path.join(cfg.ENSEMBLE_RST_DIR, filename), erosion)
     masked = cv2.bitwise_and(ori_img, ori_img, mask = erosion)
-    cv2.imwrite(os.path.join(mask_path, filename), masked)
+    cv2.imwrite(os.path.join(cfg.ENSEMBLE_MASK_DIR, filename), masked)
     
