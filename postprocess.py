@@ -12,10 +12,10 @@ import config as cfg
 os.makedirs(cfg.ENSEMBLE_RST_DIR, exist_ok=True)
 os.makedirs(cfg.ENSEMBLE_MASK_DIR, exist_ok=True)
 
-filenames = os.listdir(cfg.ENSEMBLE_SOURCE_DIR)
+filenames = os.listdir(cfg.ENSEMBLE_PRED_DIR)
 for filename in filenames:
     ori_img_path = os.path.join(cfg.INFERENCE_IMAGE_DIR, filename[:-4]+'.jpg')
-    img_path = os.path.join(cfg.ENSEMBLE_SOURCE_DIR, filename)
+    img_path = os.path.join(cfg.ENSEMBLE_PRED_DIR, filename)
     image = cv2.imread(img_path, 0)
     contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
