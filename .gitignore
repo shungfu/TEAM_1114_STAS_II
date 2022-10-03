@@ -6,5 +6,5 @@
 *.pvc
 
 Models/
-
+OpenVINO/
 __pycache__/
