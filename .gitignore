@@ -5,6 +5,12 @@
 
 *.pvc
 
+*.onnx
+*.bin
+*.xml
+*.mapping
+
 Models/
 OpenVINO/
+sample/
 __pycache__/

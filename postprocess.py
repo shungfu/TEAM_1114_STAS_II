@@ -31,10 +31,8 @@ for filename in filenames:
     kernel = np.ones((3,3), np.uint8)
     erosion = cv2.erode(image, kernel, iterations = 2)
     
-    ori_img = cv2.imread(ori_img_path)
-
+    # ori_img = cv2.imread(ori_img_path)
 
     cv2.imwrite(os.path.join(output_path, filename), erosion)
-    masked = cv2.bitwise_and(ori_img, ori_img, mask = erosion)
-    cv2.imwrite(os.path.join(mask_path, filename), masked)
-    
+    # masked = cv2.bitwise_and(ori_img, ori_img, mask = erosion)
+    # cv2.imwrite(os.path.join(mask_path, filename), masked)

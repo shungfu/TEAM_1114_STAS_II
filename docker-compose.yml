@@ -1,0 +1,19 @@
+version: "2.4"
+services:
+  lab:
+    container_name: openvino
+    image: openvino/ubuntu20_dev
+    devices:
+      - "/dev/dri:/dev/dri"
+    device_cgroup_rules:
+      - 'c 189:* rmw'
+    group_add:
+      - "109"
+      # - $(stat -c "%g" /dev/dri/render*)
+    environment:
+      - DISPLAY=$DISPLAY
+    volumes:
+      - .:/home/openvino/code
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    stdin_open: true
+    tty: true

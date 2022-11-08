@@ -12,6 +12,8 @@ TRAIN_DIR = os.path.join(DATA_ROOT, "Train")
 VALID_DIR = os.path.join(DATA_ROOT, "Train")
 
 INFERENCE_IMAGE_DIR = os.path.join(DATA_ROOT, "Inference_Images")
+VALID_IMAGE_DIR = os.path.join(DATA_ROOT, 'Valid/img')
+VALID_LABEL_DIR = os.path.join(DATA_ROOT, 'Valid/label')
 
 ENSEMBLE_RST_DIR = "./Result/Result_Ensemble6_th043/"
 ENSEMBLE_PRED_DIR = "./Result/Predictions_Ensemble6_th043/"
